@@ -3,6 +3,7 @@ name: Deploy blocklist
 on:
   schedule:
     - cron:  '* * * * *'
+  workflow_dispatch:
     
 jobs:
   build:
