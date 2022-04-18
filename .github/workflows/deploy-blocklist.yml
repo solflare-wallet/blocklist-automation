@@ -29,8 +29,7 @@ jobs:
     - run: npm run build
       working-directory: './blocklist'
       
-    - run: |
-      cp ./blocklist/*.json ./automation
+    - run: cp ./blocklist/*.json ./automation
     
     - run: git status
       working-directory: './automation'
