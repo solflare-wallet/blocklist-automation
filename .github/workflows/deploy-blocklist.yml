@@ -1,0 +1,37 @@
+name: Deploy blocklist
+
+on:
+  schedule:
+    - cron:  '* * * * *'
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: actions/checkout@v3
+      with:
+        repository: phantom-labs/blocklist
+        path: './blocklist'
+
+    - uses: actions/checkout@v3
+      with:
+        path: './automation'
+    
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+        
+    - run: npm install
+      working-directory: './blocklist'
+      
+    - run: npm run build
+      working-directory: './blocklist'
+      
+    - run: |
+      cp ./blocklist/*.json ./automation
+    
+    - run: git status
+      working-directory: './automation'
+
