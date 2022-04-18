@@ -35,15 +35,16 @@ jobs:
     
 #     - run: git status
 #       working-directory: './automation'
-      
-    - name: stage changed files
-      run: git add .
+
+    - name: setup git config
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
       working-directory: './automation'
       
-    - name: commit changed files
-      run: git commit -m 'Build'
-      working-directory: './automation'
-      
-    - name: push code to master
-      run: git push
+    - name: commit
+      run: |
+        git add .
+        git commit -m "Build blocklist"
+        git push origin master
       working-directory: './automation'
