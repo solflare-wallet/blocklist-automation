@@ -31,7 +31,7 @@ jobs:
     - run: npm run build
       working-directory: './blocklist'
       
-    - run: cp ./blocklist/*.json ./automation
+    - run: cp ./blocklist/{blocklist,blocklist-full,content-hash}.json ./automation/dist
     
     - run: git status
       working-directory: './automation'
