@@ -12,7 +12,7 @@ jobs:
     
     - uses: actions/checkout@v3
       with:
-        repository: phantom-labs/blocklist
+        repository: solflare-wallet/blocklist
         path: './blocklist'
 
     - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
     - run: npm run build
       working-directory: './blocklist'
       
-    - run: cp ./blocklist/{blocklist,blocklist-full,content-hash}.json ./automation/dist
+    - run: cp ./blocklist/{blocklist,content-hash}.json ./automation/dist
     
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
