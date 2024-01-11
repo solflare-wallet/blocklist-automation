@@ -23,7 +23,6 @@ jobs:
       with:
         node-version: '16'
         cache: 'npm'
-        cache-dependency-path: './blocklist/yarn.lock'
         
     - run: npm install
       working-directory: './blocklist'
